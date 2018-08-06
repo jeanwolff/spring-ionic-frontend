@@ -8,11 +8,10 @@ import { MyApp } from "./app.component";
 import { StatusBar } from "@ionic-native/status-bar";
 import { SplashScreen } from "@ionic-native/splash-screen";
 import { CategoriaService } from "../services/domain/categoria.service";
+import { ErrorInterceptorProvider } from "../interceptors/error-interceptor";
 
 @NgModule({
-  // Colocando lista de components ou paginas que fazem parte desse modulo
   declarations: [MyApp],
-  // Lista de modulos que são importados por esse modulo
   imports: [BrowserModule, HttpClientModule, IonicModule.forRoot(MyApp)],
   bootstrap: [IonicApp],
   entryComponents: [MyApp],
@@ -20,7 +19,8 @@ import { CategoriaService } from "../services/domain/categoria.service";
     StatusBar,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    CategoriaService
+    CategoriaService,
+    ErrorInterceptorProvider
   ]
 })
 export class AppModule {}
