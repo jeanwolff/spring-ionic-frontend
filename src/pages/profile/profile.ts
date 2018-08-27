@@ -29,8 +29,14 @@ export class ProfilePage {
           //Buscar a img bucket
           this.getImageIfExists();
         },
-        erro => {}
+        error => {
+          if (error.status == 403) {
+            this.navCtrl.setRoot("HomePage");
+          }
+        }
       );
+    } else {
+      this.navCtrl.setRoot("HomePage");
     }
   }
 
