@@ -19,6 +19,10 @@ export class CategoriasPage {
   items: CategoriaDTO[];
   bucketUrl: string = API_CONFIG.bucketBaseUrl;
 
+  showProdutos() {
+    this.navCtrl.push("ProdutosPage");
+  }
+
   ionViewDidLoad() {
     this.categoriaService.findAll().subscribe(
       response => {
